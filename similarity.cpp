@@ -4,6 +4,7 @@
 #include <string>
 #include <unordered_map>
 #include <cmath>
+#include <algorithm>
 
 double calculerSimilarite(const std::unordered_map<std::string, int>& vecteur1, const std::unordered_map<std::string, int>& vecteur2) {
     double produitScalaire = 0.0;
@@ -26,7 +27,7 @@ double calculerSimilarite(const std::unordered_map<std::string, int>& vecteur1, 
     normeVecteur1 = std::sqrt(normeVecteur1);
     normeVecteur2 = std::sqrt(normeVecteur2);
 
-    // Calcul de la similarité
+    // Calcul de la similarité normalisée
     double similarite = produitScalaire / (normeVecteur1 * normeVecteur2);
 
     return similarite;
@@ -78,9 +79,10 @@ int main() {
     std::unordered_map<std::string, int> vecteur1 = construireVecteur(contenu1);
     std::unordered_map<std::string, int> vecteur2 = construireVecteur(contenu2);
 
-    // Calculer et afficher le produit scalaire
+    // Calculer et afficher le pourcentage de similarité
     double similarite = calculerSimilarite(vecteur1, vecteur2);
-    std::cout << "Similarite (produit scalaire) : " << similarite << std::endl;
+    similarite *= 100.0; // Convertir en pourcentage
+    std::cout << "Pourcentage de similarite : " << similarite << "%" << std::endl;
 
     return 0;
 }
