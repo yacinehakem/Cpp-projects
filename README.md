@@ -1,5 +1,4 @@
 # Cpp-projects
-YASSINE HAKEM - master 1 SSI 
 
 similarity.cpp : dans ce fichier la similarité est calculée en utilisant le produit scalaire, puis elle est convertie en pourcentage sans la normalisation, ce qui est demandé.
 
